@@ -1,0 +1,15 @@
+{
+  "name": "bowling-scores",
+  "version": "1.0.0",
+  "description": "Data Structures Kata",
+  "directories": {},
+  "devDependencies": {
+    "ava": "^0.15.2"
+  },
+  "scripts": {
+    "test": "ava test.js --fail-fast --serial"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
