@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "description": "Data Structures Kata",
   "directories": {},
-  "devDependencies": {
-    "ava": "^0.15.2"
-  },
   "scripts": {
     "test": "ava test.js --fail-fast --serial"
   },
+  "presets": ["env"],
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "babel-cli": "^6.23.0",
+    "babel-preset-env": "^1.1.11"
+  }
 }
