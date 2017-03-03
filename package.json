@@ -1,10 +1,10 @@
 {
-  "name": "bowling-scores",
+  "name": "tdd-practise",
   "version": "1.0.0",
-  "description": "Data Structures Kata",
+  "description": "A integer to roman numerals converter for practising TDD",
   "directories": {},
   "scripts": {
-    "test": "ava test.js --fail-fast --serial"
+    "test": "mocha test.js"
   },
   "presets": ["env"],
   "keywords": [],
