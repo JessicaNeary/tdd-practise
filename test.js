@@ -42,3 +42,18 @@ describe('convert() numbers 10 to 19', function () {
     assert.equal(convert(19), 'XIX')
   })
 })
+describe.only('convert() numbers between 20 and 50', function () {
+  it('should return the correct values for values between 20 and 40', function () {
+    var numbers = [20, 21, 29, 34, 36, 38]
+    var expected = ['XX', 'XXI', 'XXIX', 'XXXIV', 'XXXVI', 'XXXVIII']
+    var actual = numbers.map(function (number) {
+      return convert(number)
+    })
+    assert.deepEqual(actual, expected)
+  })
+  it('should return the correct values for values between 40 and 50', function () {
+    assert.equal(convert(40), 'XL')
+    assert.equal(convert(49), 'XLIX')
+    assert.equal(convert(50), 'L')
+  })
+})
