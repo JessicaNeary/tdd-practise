@@ -72,3 +72,21 @@ describe('convert() numbers 50 to 100', function () {
     assert.equal(convert(100), 'C')
   })
 })
+describe('convert() numbers over 100', function () {
+  it('should return the correct values for numbers 101 to 500', function () {
+    var numbers = [101, 238, 279, 384, 420, 499, 500]
+    var expected = ['CI', 'CCXXXVIII', 'CCLXXIX', 'CCCLXXXIV', 'CDXX', 'CDXCIX', 'D']
+    var actual = numbers.map(function (number) {
+      return convert(number)
+    })
+    assert.deepEqual(actual, expected)
+  })
+  it('should return the correct values for numbers 501 to 1000', function () {
+    var numbers = [564, 682, 731, 859, 999, 1000]
+    var expected = ['DLXIV', 'DCLXXXII', 'DCCXXXI', 'DCCCLIX', 'CMXCIX', 'M']
+    var actual = numbers.map(function (number) {
+      return convert(number)
+    })
+    assert.deepEqual(actual, expected)
+  })
+})

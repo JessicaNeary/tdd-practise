@@ -1,42 +1,22 @@
 // converts inputed number to roman numeral
 module.exports = function convert (number) {
+  const places = [1000, 500, 100, 50, 10, 5, 1]
+  const letters = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
   let numeral = ''
-
-  const fives = Math.floor(number / 5)
-  let tens = Math.floor(number / 10)
-  let hundreds = Math.floor(number / 100)
-  const remainder = number % 5
-  // console.log('fives:',fives,'tens:', tens, 'remainder:', remainder)
-  if (hundreds) {
-    numeral += 'C'
-    tens -= 10
-  }
-  if (tens) {
-    if (tens === 9) {
-      numeral += 'XC'
+  for (let i = 0; i < 7; i = i + 2) {
+    let occurences = Math.floor(number / places[i])
+    if (occurences === 9) {
+      numeral += letters[i] + letters[i - 2]
+    } else if (occurences >= 5) {
+      numeral += letters[i - 1]
+      numeral += letters[i].repeat(occurences - 5)
     }
-    else if (tens >= 5) {
-      numeral += 'L'
-      tens -= 5
+    if (occurences === 4) {
+      numeral += letters[i] + letters[i - 1]
+    } else if (occurences <= 3) {
+      numeral += letters[i].repeat(occurences)
     }
-    if (tens <= 3) {
-      numeral += 'X'.repeat(tens)
-    }
-    else if (tens === 4) {
-      numeral += 'XL'
-    }
-  }
-  if (fives % 2) {
-    if (remainder === 4) {
-      numeral += 'IX'
-    }
-    else {numeral += 'V'}
-  }
-  else if (remainder === 4) {
-    numeral += 'IV'
-  }
-  if (remainder <= 3) {
-    numeral += 'I'.repeat(remainder)
+    number -= occurences * places[i]
   }
   return numeral
 }
